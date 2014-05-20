@@ -1,0 +1,52 @@
+export PATH=/usr/local/bin:/usr/local/mysql/bin:/sw/bin:/sw/sbin:/opt/local/bin:/opt/local/sbin:$PATH
+export MANPATH=/opt/local/share/man:$MANPATH
+
+# Couleurs du préfix du terminal
+NM="\[\033[0;38m\]"
+HI="\[\033[0;37m\]"
+HII="\[\033[0;36m\]"
+SI="\[\033[0;33m\]"
+IN="\[\033[0m\]"
+
+export PS1="$NM[ $HII\u $SI\w$NM ] $IN"
+
+if [ "$TERM" != "dumb" ]; then
+    export LS_OPTIONS='--color=auto'
+    #eval `dircolors ~/.dir_colors`
+fi
+
+##
+# Your previous /Users/maxence/.bash_profile file was backed up as /Users/maxence/.bash_profile.macports-saved_2012-08-18_at_17:09:08
+#
+#
+
+# MacPorts Installer addition on 2012-08-18_at_17:09:08: adding an appropriate PATH variable for use with MacPorts.
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+# Finished adapting your PATH environment variable for use with MacPorts.
+
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+export EC2_HOME=~/.ec2
+export PATH=$PATH:$EC2_HOME/bin
+export EC2_PRIVATE_KEY=`ls $EC2_HOME/pk-*.pem`
+export EC2_CERT=`ls $EC2_HOME/cert-*.pem`
+export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Home/
+export GOPATH=~/devbox/files/go
+
+eval `ssh-agent -s` > /dev/null
+#exec ssh-agent /bin/bash
+ssh-add ~/.ssh/id_rsa &> /dev/null
+ssh-add ~/.ssh/aws.pem &> /dev/null
+
+PROMPT_COMMAND='echo -ne "\033]0;"OSX"\007"'
+
+# Setting PATH for Python 3.4
+# The orginal version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.4/bin:${PATH}"
+export PATH
+
+complete -o default -o nospace -W "$(awk '/^Host / {print $2}' < $HOME/.ssh/config)" scp sftp ssh

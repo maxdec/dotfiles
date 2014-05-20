@@ -1,0 +1,6 @@
+alias ls='ls -G'
+alias tunnel='ssh -D 9000 ec2-user@54.229.3.248'
+alias sockon='networksetup -setsocksfirewallproxystate Wi-Fi on'
+alias sockoff='networksetup -setsocksfirewallproxystate Wi-Fi off'
+alias flushdns='sudo dscacheutil -flushcache'
+alias deluge='ssh -L 8112:localhost:8112 maxence@maxdec.fr'

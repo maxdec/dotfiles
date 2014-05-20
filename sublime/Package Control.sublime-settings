@@ -1,0 +1,15 @@
+{
+  "installed_packages":
+  [
+    "BracketHighlighter",
+    "GitGutter",
+    "GitHubinator",
+    "SCSS",
+    "SideBarEnhancements",
+    "SublimeCodeIntel",
+    "SublimeLinter",
+    "SublimeLinter-jshint",
+    "Theme - Soda",
+    "TrailingSpaces"
+  ]
+}
