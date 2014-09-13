@@ -2,14 +2,24 @@
   "installed_packages":
   [
     "BracketHighlighter",
+    "Color Highlighter",
+    "FindKeyConflicts",
     "GitGutter",
     "GitHubinator",
+    "JSHint",
+    "LESS",
+    "nginx",
+    "Package Control",
     "SCSS",
+    "Search Anywhere",
     "SideBarEnhancements",
     "SublimeCodeIntel",
     "SublimeLinter",
     "SublimeLinter-jshint",
+    "SublimeLinter-ruby",
+    "Tagify",
     "Theme - Soda",
+    "Theme - Spacegray",
     "TrailingSpaces"
   ]
 }

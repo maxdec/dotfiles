@@ -1,6 +1,52 @@
-alias ls='ls -G'
+alias flushdns='dscacheutil -flushcache'
+
 alias tunnel='ssh -D 9000 ec2-user@54.229.3.248'
+alias deluge='ssh -L 8112:localhost:8112 maxdec'
 alias sockon='networksetup -setsocksfirewallproxystate Wi-Fi on'
 alias sockoff='networksetup -setsocksfirewallproxystate Wi-Fi off'
-alias flushdns='sudo dscacheutil -flushcache'
-alias deluge='ssh -L 8112:localhost:8112 maxence@maxdec.fr'
+alias serve='python -m SimpleHTTPServer'
+
+export TOKEN="xxx"
+function api () {
+  method="$1"
+  path="$2"
+  params="${@:3}"
+  admin="Admin:true"
+  auth="Authorization:Bearer ${TOKEN}"
+  http $method https://api.spotistic.com"$path" "$admin" "$auth" $params
+}
+
+function apidev () {
+  method="$1"
+  path="$2"
+  params="${@:3}"
+  admin="Admin:true"
+  auth="Authorization:Bearer ${TOKEN}"
+  http $method https://api.spotistic.dev"$path" "$admin" "$auth" $params
+}
+
+function standup () {
+  a=`pwd`
+  for folder in responsive-frontend backend-api backend-rubber landing-page inspector
+  do
+    cd "$HOME/devbox/files/$folder" 2> /dev/null && {
+      gitlast $1
+    }
+  done
+  cd $a
+}
+
+function gitlast () {
+  days="$1"
+  if [[ $# -eq 0 ]] ; then
+    days=1
+  fi
+  commits=$(git log --author=$(whoami) --since="$days.days" --format='%s')
+  if [[ -n $commits ]]; then
+    echo '=============================================='
+    echo "# $folder"
+    echo -e "$commits"
+  fi
+}
+
+alias standupc="standup | pbcopy"

@@ -1,3 +1,9 @@
+export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$ "
+PROMPT_COMMAND='echo -ne "\033]0;"OSX"\007"'
+export CLICOLOR=1
+export LSCOLORS=ExFxBxDxCxegedabagacad
+export GOPATH=$HOME/devbox/files/go/
+
 export PATH=/usr/local/bin:/usr/local/mysql/bin:/sw/bin:/sw/sbin:/opt/local/bin:/opt/local/sbin:$PATH
 export MANPATH=/opt/local/share/man:$MANPATH
 
@@ -11,8 +17,8 @@ IN="\[\033[0m\]"
 export PS1="$NM[ $HII\u $SI\w$NM ] $IN"
 
 if [ "$TERM" != "dumb" ]; then
-    export LS_OPTIONS='--color=auto'
-    #eval `dircolors ~/.dir_colors`
+  export LS_OPTIONS='--color=auto'
+  #eval `dircolors ~/.dir_colors`
 fi
 
 export EC2_HOME=~/.ec2
